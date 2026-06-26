@@ -1,5 +1,0 @@
-import CrudSection from './CrudSection';
-import { getSeasonMembers, inviteSeasonMember, updateSeasonMember, removeSeasonMember } from '../services/seasonMembersService';
-const fields=[{name:'invited_email',label:'Email invitata',type:'email'},{name:'role',label:'Ruolo owner/admin/editor/analyst/viewer'},{name:'status',label:'Status pending/accepted/revoked'}];
-const columns=[{key:'invited_email',label:'Email'},{key:'role',label:'Ruolo'},{key:'status',label:'Stato'},{key:'can_manage_members',label:'Gestisce membri'}];
-export default function SeasonMembersSection({activeSeason,userDefaults={},locked=false}){ return <CrudSection title="Membri stagione / Staff" description="Invita membri, assegna ruoli, modifica permessi e revoca accessi." fields={fields} columns={columns} load={(filters)=>activeSeason?getSeasonMembers(activeSeason.id,filters):Promise.resolve([])} create={inviteSeasonMember} update={updateSeasonMember} remove={removeSeasonMember} defaults={{...userDefaults, season_id:activeSeason?.id, status:'pending'}} locked={locked || !activeSeason}/>; }

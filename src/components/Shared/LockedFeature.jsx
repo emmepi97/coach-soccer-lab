@@ -1,1 +1,0 @@
-export default function LockedFeature({message='Funzionalità disponibile nel piano Pro'}){ return <div className="locked"><strong>🔒 {message}</strong><p>Contatta l’amministratore o aggiorna il piano per sbloccarla.</p></div>; }
