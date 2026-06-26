@@ -1,1 +1,0 @@
-import StatCard from '../Shared/StatCard'; export default function OwnerDashboard({users=[],plans=[]}){ return <div><h2>Panoramica prodotto</h2><div className="statsGrid"><StatCard label="Utenti" value={users.length}/><StatCard label="Piani" value={plans.length}/><StatCard label="Payments" value="Ready"/><StatCard label="Stripe" value="Futuro"/></div></div>; }
