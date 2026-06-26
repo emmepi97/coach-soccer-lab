@@ -1,0 +1,3 @@
+export default function DataTable({columns=[],rows=[],onEdit,onDelete,onOpen,rowActions}){
+ return <div className="tableWrap"><table><thead><tr>{columns.map(c=><th key={c.key}>{c.label}</th>)}<th>Azioni</th></tr></thead><tbody>{rows.map(r=><tr key={r.id || JSON.stringify(r)}>{columns.map(c=><td key={c.key}>{c.render?c.render(r):String(r[c.key] ?? '')}</td>)}<td className="actions">{rowActions?.(r)}{onOpen&&<button className="ghost" onClick={()=>onOpen(r)}>Apri</button>}{onEdit&&<button className="secondary" onClick={()=>onEdit(r)}>Modifica</button>}{onDelete&&<button className="danger ghostDanger" onClick={()=>onDelete(r)}>Elimina</button>}</td></tr>)}</tbody></table>{!rows.length && <div className="emptyInline">Nessun dato da mostrare.</div>}</div>;
+}
