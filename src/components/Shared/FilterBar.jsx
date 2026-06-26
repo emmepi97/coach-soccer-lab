@@ -1,0 +1,1 @@
+export default function FilterBar({value,onChange,placeholder='Cerca...',children}){ return <div className="filterBar"><input value={value||''} onChange={e=>onChange?.(e.target.value)} placeholder={placeholder}/>{children}</div>; }
